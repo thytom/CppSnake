@@ -2,6 +2,7 @@
 #define SNAKE_H_
 
 #include <vector>
+#include <ncurses.h>
 
 #include "node.h"
 
@@ -20,6 +21,7 @@ class Snake {
 		void move(Direction d);
 		int length();
 		Node head();
+		void draw(WINDOW *win);
 	private:
 		Direction d;
 		std::vector<Node> body;

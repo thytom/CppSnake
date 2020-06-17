@@ -1,7 +1,8 @@
 #include "node.h"
 
-Node::Node() : empty (true){}
-Node::Node(int x, int y) :  empty (false), x (x), y (y){}
+Node::Node() : ch ('#'), empty (true){}
+Node::Node(int x, int y) : ch('#'), empty (false), x (x), y (y){}
+Node::Node(char ch, int x, int y) : ch(ch), empty (false), x (x), y (y){}
 
 bool Node::collidesWith(Node a)
 {
@@ -50,4 +51,10 @@ bool Node::isEmpty()
 void Node::makeEmpty()
 {
 	empty = true;
+}
+
+void Node::draw(WINDOW *win)
+{
+	if(!empty)
+		mvwaddch(win, y, x, ch);
 }

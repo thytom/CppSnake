@@ -3,6 +3,7 @@
 
 #include <ncurses.h>
 
+#include "node.h"
 #include "snake.h"
 
 #endif

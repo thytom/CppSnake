@@ -54,3 +54,8 @@ Node Snake::head()
 	return this->body[0];
 }
 
+void Snake::draw(WINDOW *win)
+{
+	for(Node a : body)
+		a.draw(win);
+}
