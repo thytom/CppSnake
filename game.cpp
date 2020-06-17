@@ -4,6 +4,7 @@ Game::Game(WINDOW *w) : w(w), score(0)
 {
 	getmaxyx(w, term_y, term_x);
 	snake = new Snake(term_x/2, term_y/2, 5, Right);
+	apple = new Apple(term_x, term_y, snake->getBody());
 
 	state = READY;
 }
@@ -41,6 +42,7 @@ void Game::play(char in)
 void Game::render()
 {
 	snake->draw(w);
+	apple->draw(w);
 }
 
 

@@ -6,6 +6,7 @@
 #include <thread>
 
 #include "snake.h"
+#include "apple.h"
 
 enum Controls {
 	QUIT='q',
@@ -33,6 +34,7 @@ class Game {
 		void render();
 		WINDOW *w;
 		Snake *snake;
+		Apple *apple;
 		int score;
 		State state;
 };

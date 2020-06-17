@@ -1,6 +1,7 @@
 #include "node.h"
 
 Node::Node() : ch ('#'){}
+Node::Node(char ch) : ch (ch){}
 Node::Node(int x, int y) : ch('#'), x (x), y (y){}
 Node::Node(char ch, int x, int y) : ch(ch), x (x), y (y){}
 

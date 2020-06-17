@@ -66,6 +66,11 @@ Node Snake::head()
 	return this->body[0];
 }
 
+std::vector<Node> Snake::getBody()
+{
+	return this->body;
+}
+
 void Snake::draw(WINDOW *win)
 {
 	// Remove last tail

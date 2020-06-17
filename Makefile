@@ -1,14 +1,16 @@
 CC = g++
 CFLAGS = -std=c++17 -O2 -g -Wall -lncurses
 DEP = main.h \
-	  snake.h \
+	  game.h \
 	  node.h \
-	  game.h
+	  apple.h \
+	  snake.h
 
 OBJ = main.o \
-	  snake.o \
+	  game.o \
 	  node.o \
-	  game.o
+	  apple.o \
+	  snake.o
 
 EXECUTABLE=CppSnake
 

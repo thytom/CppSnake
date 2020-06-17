@@ -7,6 +7,7 @@
 class Node {
 	public:
 		Node();
+		Node(char ch);
 		Node(int x, int y);
 		Node(char ch, int x, int y);
 		bool collidesWith(Node a);
