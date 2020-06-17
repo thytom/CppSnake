@@ -1,16 +1,17 @@
 #include "snake.h"
 
-
 Snake::Snake(int x, int y, int length, Direction d)
 {
-	body.resize(length + 1);
-	body[0].move(x, y);
+	body = std::vector<Node>(length, Node(x, y));
 	this->d = d;
 }
 
 void Snake::grow(int amount)
 {
-	body.resize(body.size() + amount);
+	for(int i = 0; i < amount; i++)
+	{
+		body.push_back(Node(body.back().getX(), body.back().getY()));
+	}
 }
 
 void Snake::move()
@@ -22,11 +23,7 @@ void Snake::move(Direction d)
 {
 	this->d = d;
 
-	// Find the last node that's still
-	int i = length();
-	while(!body[i--].isEmpty());
-
-	for(; i>0; i--)
+	for(int i = length(); i>0; i--)
 	{
 		body[i].move(body[i-1].getX(), body[i-1].getY());
 	}

@@ -2,6 +2,7 @@
 #define SNAKE_H_
 
 #include <vector>
+#include <optional>
 #include <ncurses.h>
 
 #include "node.h"

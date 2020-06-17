@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -O2 -g -Wall -lncurses
+CFLAGS = -std=c++17 -O2 -g -Wall -lncurses
 DEP = main.h \
 	  snake.h \
 	  node.h

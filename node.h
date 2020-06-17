@@ -15,12 +15,9 @@ class Node {
 		void shift(int dx, int dy);
 		int getX();
 		int getY();
-		bool isEmpty();
-		void makeEmpty();
 		void draw(WINDOW *win);
 	private:
 		char ch;
-		bool empty;
 		int x,y;
 };
 
