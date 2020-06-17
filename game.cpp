@@ -21,6 +21,12 @@ void Game::loop()
 	{
 		getmaxyx(w, term_y, term_x);
 		play(getch());
+		if(apple->collidesWith(snake->head()))
+		{
+			apple->newPosition(term_x, term_y, snake->getBody());
+			snake->grow(1);
+			score++;
+		}
 		render();
 		std::this_thread::sleep_for(std::chrono::nanoseconds(1000000000/FRAMERATE));
 	} while(state == RUNNING);
