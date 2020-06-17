@@ -5,5 +5,8 @@
 
 #include "node.h"
 #include "snake.h"
+#include <chrono>
+#include <thread>
+
 
 #endif

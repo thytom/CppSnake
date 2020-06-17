@@ -3,7 +3,7 @@
 
 Snake::Snake(int x, int y, int length, Direction d)
 {
-	body.resize(length);
+	body.resize(length + 1);
 	body[0].move(x, y);
 	this->d = d;
 }
@@ -23,7 +23,7 @@ void Snake::move(Direction d)
 	this->d = d;
 
 	// Find the last node that's still
-	int i = length() - 1;
+	int i = length();
 	while(!body[i--].isEmpty());
 
 	for(; i>0; i--)
@@ -46,7 +46,7 @@ void Snake::move(Direction d)
 
 int Snake::length()
 {
-	return this->body.size();
+	return this->body.size() - 1;
 }
 
 Node Snake::head()
@@ -56,6 +56,7 @@ Node Snake::head()
 
 void Snake::draw(WINDOW *win)
 {
-	for(Node a : body)
-		a.draw(win);
+	int i;
+	for(i = 0; i <= length(); i++)
+		body[i].draw(win);
 }
