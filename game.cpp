@@ -3,7 +3,7 @@
 Game::Game(WINDOW *w) : w(w), score(0)
 {
 	getmaxyx(w, term_y, term_x);
-	snake = new Snake(term_x/2, term_y/2, 10, Right);
+	snake = new Snake(term_x/2, term_y/2, 5, Right);
 
 	state = READY;
 }

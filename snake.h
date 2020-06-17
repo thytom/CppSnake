@@ -25,6 +25,8 @@ class Snake {
 		void draw(WINDOW *win);
 	private:
 		Direction d;
+		int last_x;
+		int last_y;
 		std::vector<Node> body;
 };
 

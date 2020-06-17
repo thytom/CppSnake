@@ -23,7 +23,10 @@ void Snake::move(Direction d)
 {
 	this->d = d;
 
-	for(int i = length(); i>0; i--)
+	last_x = body[length() - 1].getX();
+	last_y = body[length() - 1].getY();
+
+	for(int i = length() - 1; i>0; i--)
 	{
 		body[i].move(body[i-1].getX(), body[i-1].getY());
 	}
@@ -43,7 +46,7 @@ void Snake::move(Direction d)
 
 int Snake::length()
 {
-	return this->body.size() - 1;
+	return this->body.size();
 }
 
 Node Snake::head()
@@ -53,7 +56,9 @@ Node Snake::head()
 
 void Snake::draw(WINDOW *win)
 {
+	// Remove last tail
+	mvwaddch(win, last_y, last_x, ' ');
 	int i;
-	for(i = 0; i <= length(); i++)
+	for(i = 0; i < length(); i++)
 		body[i].draw(win);
 }
