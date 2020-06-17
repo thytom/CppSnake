@@ -14,6 +14,15 @@ void Snake::grow(int amount)
 	}
 }
 
+bool Snake::valid_move(Direction d)
+{
+	return !
+		(  (this->d == Up	 && d == Down)
+		|| (this->d == Down  && d == Up)
+		|| (this->d == Left  && d == Right)
+		|| (this->d == Right && d == Left));
+}
+
 void Snake::move()
 {
 	this->move(d);
@@ -21,6 +30,9 @@ void Snake::move()
 
 void Snake::move(Direction d)
 {
+	if(!valid_move(d))
+		return;
+
 	this->d = d;
 
 	last_x = body[length() - 1].getX();

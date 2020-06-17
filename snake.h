@@ -24,6 +24,7 @@ class Snake {
 		Node head();
 		void draw(WINDOW *win);
 	private:
+		bool valid_move(Direction d);
 		Direction d;
 		int last_x;
 		int last_y;
