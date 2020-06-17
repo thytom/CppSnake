@@ -1,14 +1,20 @@
 #ifndef NODE_H_
 #define NODE_H_
 
+#include <vector>
+
 class Node {
 	public:
+		Node();
 		Node(int x, int y);
-		static bool collide(Node a, Node b);
-		static bool collide(std::vector<Node> a, Node b);
+		bool collidesWith(Node a);
+		bool collidesWithAny(std::vector<Node> vec);
 		void move(int x, int y);
+		void shift(int dx, int dy);
+		int getX();
+		int getY();
 		bool isEmpty();
-		void setEmpty(bool);
+		void makeEmpty();
 	private:
 		bool empty;
 		int x,y;

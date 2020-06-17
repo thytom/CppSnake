@@ -16,6 +16,7 @@ class Snake {
 	public:
 		Snake(int x, int y, int length, Direction d);
 		void grow(int amount);
+		void move();
 		void move(Direction d);
 		int length();
 		Node head();
