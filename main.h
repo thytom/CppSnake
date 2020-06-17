@@ -3,10 +3,6 @@
 
 #include <ncurses.h>
 
-#include "node.h"
-#include "snake.h"
-#include <chrono>
-#include <thread>
-
+#include "game.h"
 
 #endif
