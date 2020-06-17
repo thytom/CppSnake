@@ -71,6 +71,11 @@ std::vector<Node> Snake::getBody()
 	return this->body;
 }
 
+std::vector<Node> Snake::getTail()
+{
+	return std::vector<Node>(body.begin() + 1, body.end());
+}
+
 void Snake::draw(WINDOW *win)
 {
 	// Remove last tail

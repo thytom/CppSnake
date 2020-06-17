@@ -23,6 +23,7 @@ class Snake {
 		int length();
 		Node head();
 		std::vector<Node> getBody();
+		std::vector<Node> getTail();
 		void draw(WINDOW *win);
 	private:
 		bool valid_move(Direction d);

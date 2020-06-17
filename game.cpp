@@ -26,6 +26,9 @@ void Game::loop()
 			apple->newPosition(term_x, term_y, snake->getBody());
 			snake->grow(1);
 			score++;
+		}else if(snake->head().collidesWithAny(snake->getTail()))
+		{
+			state = FINISHED;
 		}
 		render();
 		std::this_thread::sleep_for(std::chrono::nanoseconds(1000000000/FRAMERATE));
