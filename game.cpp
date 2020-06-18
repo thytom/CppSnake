@@ -9,6 +9,12 @@ Game::Game(WINDOW *w) : w(w), score(0)
 	state = READY;
 }
 
+Game::~Game()
+{
+	delete(snake);
+	delete(apple);
+}
+
 int Game::start()
 {
 	state = RUNNING;

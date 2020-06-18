@@ -25,6 +25,7 @@ enum State {
 class Game {
 	public:
 		Game(WINDOW *w);
+		~Game();
 		int start();
 	private:
 		static constexpr int FRAMERATE = 25;
