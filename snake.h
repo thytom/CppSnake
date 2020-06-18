@@ -20,6 +20,8 @@ class Snake {
 		void grow(int amount);
 		void move();
 		void move(Direction d);
+		void moveWrap(int maxX, int maxY);
+		void moveWrap(int maxX, int maxY, Direction d);
 		int length();
 		Node head();
 		std::vector<Node> getBody();

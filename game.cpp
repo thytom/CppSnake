@@ -9,10 +9,11 @@ Game::Game(WINDOW *w) : w(w), score(0)
 	state = READY;
 }
 
-void Game::start()
+int Game::start()
 {
 	state = RUNNING;
 	loop();
+	return score;
 }
 
 void Game::loop()
@@ -40,11 +41,11 @@ void Game::play(char in)
 	switch(in)
 	{
 		case QUIT	: state=FINISHED; break;
-		case UP 	: snake->move(Up	); break;
-		case DOWN 	: snake->move(Down	); break;
-		case LEFT 	: snake->move(Left	); break;
-		case RIGHT 	: snake->move(Right	); break;
-		default : snake->move();
+		case UP 	: snake->moveWrap(term_x, term_y, Up	); break;
+		case DOWN 	: snake->moveWrap(term_x, term_y, Down	); break;
+		case LEFT 	: snake->moveWrap(term_x, term_y, Left	); break;
+		case RIGHT 	: snake->moveWrap(term_x, term_y, Right	); break;
+		default : snake->moveWrap(term_x, term_y);
 	}
 }
 

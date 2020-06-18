@@ -56,6 +56,28 @@ void Snake::move(Direction d)
 	body[0].shift(dx, dy);
 }
 
+void Snake::moveWrap(int maxX, int maxY)
+{
+	moveWrap(maxX, maxY, this->d);
+}
+
+void Snake::moveWrap(int maxX, int maxY, Direction d)
+{
+	move(d);
+
+	Node* head = &body[0];
+
+	if(head->getX() < 0)
+		head->move(maxX - 1, head->getY());
+	else if(head->getX() >= maxX)
+		head->move(0, head->getY());
+
+	if(head->getY() < 0)
+		head->move(head->getX(), maxY - 1);
+	else if(head->getY() >= maxY)
+		head->move(head->getX(), 0);
+}
+
 int Snake::length()
 {
 	return this->body.size();

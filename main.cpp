@@ -10,7 +10,8 @@ int main()
 	timeout(0);
 
 	Game g(stdscr);
-	g.start();
+	int score = g.start();
 
 	endwin();
+	std::cout << "Game Over! Final Score: " << score << std::endl;
 }
