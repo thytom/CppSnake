@@ -1,9 +1,8 @@
 #include "snake.h"
 
 Snake::Snake(int x, int y, int length, Direction d)
+	: d(d), body(std::vector<Node>(length, Node(x, y)))
 {
-	body = std::vector<Node>(length, Node(x, y));
-	this->d = d;
 }
 
 void Snake::grow(int amount)
