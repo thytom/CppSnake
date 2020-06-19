@@ -1,11 +1,7 @@
 #ifndef APPLE_H_
 #define APPLE_H_
 
-#include <ncurses.h>
 #include <vector>
-#include <cstdlib>
-#include <ctime>
-
 #include "node.h"
 
 class Apple : public Node {

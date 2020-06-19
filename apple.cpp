@@ -1,7 +1,10 @@
 #include "apple.h"
+#include <ncurses.h>
+#include <cstdlib>
+#include <ctime>
 
 Apple::Apple(int maxX, int maxY, std::vector<Node> exclude)
-	: Node('@')
+	: Node(APPLECHAR)
 {
 	newPosition(maxX, maxY, exclude);
 }
