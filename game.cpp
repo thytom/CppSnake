@@ -30,9 +30,16 @@ void Game::loop()
 		play(getch());
 		if(apple->collidesWith(snake->head()))
 		{
-			apple->newPosition(term_x, term_y, snake->getBody());
-			snake->grow(1);
-			score++;
+			// If the snake is bigger than the board itself, then quit
+			if(snake->length() > term_y * term_x)
+			{
+				state = FINISHED;
+			}else
+			{
+				apple->newPosition(term_x, term_y, snake->getBody());
+				snake->grow(1);
+				score++;
+			}
 		}else if(snake->head().collidesWithAny(snake->getTail()))
 		{
 			state = FINISHED;
