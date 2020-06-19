@@ -5,7 +5,7 @@ Node::Node(char ch) : ch (ch){}
 Node::Node(int x, int y) : ch('#'), x (x), y (y){}
 Node::Node(char ch, int x, int y) : ch(ch), x (x), y (y){}
 
-bool Node::collidesWith(Node a)
+bool Node::collidesWith(const Node &a) const
 {
 	if(this->x == a.getX() && this->y == a.getY())
 		return true;
@@ -13,10 +13,10 @@ bool Node::collidesWith(Node a)
 		return false;
 }
 
-bool Node::collidesWithAny(std::vector<Node> vec)
+bool Node::collidesWithAny(const std::vector<Node> &vec, int start, int end) const
 {
-	for(Node a : vec)
-		if(this->collidesWith(a))
+	while(start++<end)
+		if(this->collidesWith(vec[start]))
 			return true;
 	return false;
 }
@@ -33,12 +33,12 @@ void Node::shift(int dx, int dy)
 	this->y += dy;
 }
 
-int Node::getX()
+int Node::getX() const
 {
 	return x;
 }
 
-int Node::getY()
+int Node::getY() const
 {
 	return y;
 }

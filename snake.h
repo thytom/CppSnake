@@ -22,10 +22,9 @@ class Snake {
 		void move(Direction d);
 		void moveWrap(int maxX, int maxY);
 		void moveWrap(int maxX, int maxY, Direction d);
-		int length();
-		Node head();
-		std::vector<Node> getBody();
-		std::vector<Node> getTail();
+		int length() const;
+		const Node& head() const;
+		const std::vector<Node>& getBody() const;
 		void draw(WINDOW *win);
 	private:
 		bool valid_move(Direction d);

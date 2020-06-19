@@ -6,8 +6,8 @@
 
 class Apple : public Node {
 	public:
-		Apple(int maxX, int maxY, std::vector<Node> exclude);
-		void newPosition(int maxX, int maxY, std::vector<Node> exclude);
+		Apple(int maxX, int maxY, const std::vector<Node> &exclude);
+		void newPosition(int maxX, int maxY, const std::vector<Node> &exclude);
 	private:
 		static constexpr char APPLECHAR = '@';
 };

@@ -78,24 +78,19 @@ void Snake::moveWrap(int maxX, int maxY, Direction d)
 		head->move(head->getX(), 0);
 }
 
-int Snake::length()
+int Snake::length() const
 {
 	return this->body.size();
 }
 
-Node Snake::head()
+const Node& Snake::head() const
 {
-	return this->body[0];
+	return this->body.front();
 }
 
-std::vector<Node> Snake::getBody()
+const std::vector<Node>& Snake::getBody() const
 {
 	return this->body;
-}
-
-std::vector<Node> Snake::getTail()
-{
-	return std::vector<Node>(body.begin() + 1, body.end());
 }
 
 void Snake::draw(WINDOW *win)

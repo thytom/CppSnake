@@ -3,16 +3,16 @@
 #include <cstdlib>
 #include <ctime>
 
-Apple::Apple(int maxX, int maxY, std::vector<Node> exclude)
+Apple::Apple(int maxX, int maxY, const std::vector<Node> &exclude)
 	: Node(APPLECHAR)
 {
 	newPosition(maxX, maxY, exclude);
 }
 
-void Apple::newPosition(int maxX, int maxY, std::vector<Node> exclude)
+void Apple::newPosition(int maxX, int maxY, const std::vector<Node> &exclude)
 {
 	do
 	{
 		move(std::rand() % maxX, std::rand() % maxY);
-	} while(this->collidesWithAny(exclude));
+	} while(this->collidesWithAny(exclude, 0, exclude.size()));
 }

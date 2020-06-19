@@ -40,7 +40,7 @@ void Game::loop()
 				snake->grow(1);
 				score++;
 			}
-		}else if(snake->head().collidesWithAny(snake->getTail()))
+		}else if(snake->head().collidesWithAny(snake->getBody(), 1, snake->length()))
 		{
 			state = FINISHED;
 		}
