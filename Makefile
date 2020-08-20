@@ -1,31 +1,31 @@
 CC = g++
 CFLAGS = -O2 -g -Wall -lncurses
-DEP = main.h \
-	  game.h \
-	  node.h \
-	  apple.h \
-	  snake.h
 
-OBJ = main.o \
-	  game.o \
-	  node.o \
-	  apple.o \
-	  snake.o
+SRC_DIR := ./src
+OBJ_DIR := ./build
+BIN_DIR := ./bin
+SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
+OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
 
-EXECUTABLE=CppSnake
+EXECUTABLE=$(BIN_DIR)/CppSnake
 
-.phony: all make run clean
+.phony: all run clean build dirs
 
-%.o : %.cpp
-	$(CC) -c -o $@ $< $(CFLAGS)
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp 
+	$(CC) $(CFLAGS) -c -o $@ $< 
 
-all: make run clean
+all: run clean
 
-make: $(OBJ)
-	$(CC) -s -o $(EXECUTABLE) $^ $(CFLAGS)
+dirs:
+	mkdir -p $(OBJ_DIR) $(BIN_DIR)
 
-run: make
-	./$(EXECUTABLE)
+$(EXECUTABLE): dirs $(OBJ_FILES)
+	$(CC) $(CFLAGS) -s -o $@ $(OBJ_FILES)
+
+build: $(EXECUTABLE)
+
+run: build
+	$(EXECUTABLE)
 
 clean:
-	rm $(OBJ) $(EXECUTABLE)
+	rm -r $(OBJ_DIR) $(BIN_DIR)
